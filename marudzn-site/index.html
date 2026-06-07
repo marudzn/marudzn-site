@@ -321,7 +321,7 @@
     overflow: hidden; position: relative;
     display: flex; align-items: center; justify-content: center;
   }
-  .project-card.featured .card-thumb { aspect-ratio: 16/7; }
+  .project-card.featured .card-thumb { aspect-ratio: 16/10; }
 
   /* placeholder pattern */
   .card-thumb-placeholder {
@@ -591,7 +591,7 @@
     gap: 1rem;
   }
   .modal-gif {
-    background: #0e0e0e;
+    background: #000;
     aspect-ratio: 9/16;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.07);
@@ -599,7 +599,7 @@
   }
   .modal-gif img,
   .modal-gif video {
-    width: 100%; height: 100%; object-fit: contain;
+    width: 100%; height: 100%; object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
   }
