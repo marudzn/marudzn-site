@@ -321,7 +321,7 @@
     overflow: hidden; position: relative;
     display: flex; align-items: center; justify-content: center;
   }
-  .project-card.featured .card-thumb { aspect-ratio: 21/9; }
+  .project-card.featured .card-thumb { aspect-ratio: 16/7; }
 
   /* placeholder pattern */
   .card-thumb-placeholder {
@@ -586,10 +586,16 @@
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 1px; background: rgba(255,255,255,0.06);
   }
+  .modal-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
   .modal-gif {
-    background: #111;
-    aspect-ratio: 4/3;
+    background: #0e0e0e;
+    aspect-ratio: 9/16;
     overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
   }
   .modal-gif img,
   .modal-gif video {
@@ -608,8 +614,7 @@
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .nav-links { gap: 1.5rem; }
-    .modal-grid { grid-template-columns: repeat(2, 1fr); }
-    .modal-inner { padding: 2rem 1.5rem; }
+    .modal-grid { grid-template-columns: repeat(2, 1fr); }    .modal-inner { padding: 2rem 1.5rem; }
   }
 </style>
 </head>
