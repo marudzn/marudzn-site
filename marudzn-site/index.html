@@ -534,6 +534,72 @@
   }
   .reveal.visible { opacity: 1; transform: none; }
 
+  /* ── LIGHTBOX MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(8,8,8,0.96);
+    display: flex; flex-direction: column;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+    overflow-y: auto;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal-inner {
+    max-width: 1100px; width: 100%;
+    margin: 0 auto; padding: 4rem 3rem;
+  }
+
+  .modal-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 2rem;
+  }
+  .modal-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: 0.04em; line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .modal-client {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; color: var(--cyan);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .modal-desc {
+    font-size: 0.9rem; color: rgba(245,242,238,0.55);
+    line-height: 1.75; max-width: 600px;
+  }
+  .modal-close {
+    background: none; border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white); font-size: 1.2rem;
+    width: 42px; height: 42px;
+    cursor: crosshair; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .modal-close:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  .modal-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.06);
+  }
+  .modal-gif {
+    background: #111;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .modal-gif img,
+  .modal-gif video {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .modal-gif:hover img,
+  .modal-gif:hover video { transform: scale(1.04); }
+
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -542,6 +608,8 @@
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .nav-links { gap: 1.5rem; }
+    .modal-grid { grid-template-columns: repeat(2, 1fr); }
+    .modal-inner { padding: 2rem 1.5rem; }
   }
 </style>
 </head>
@@ -608,20 +676,18 @@
   <div class="project-grid">
 
     <!-- FEATURED -->
-    <div class="project-card featured" data-cat="motion">
+    <div class="project-card featured" data-cat="motion" onclick="openModal('tmobile')" style="cursor:crosshair">
       <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <p class="ph-label">Add project image here<br>T-Mobile Tuesday Motion GFX</p>
-        </div>
+        <img class="card-img" src="tmobile-cover.gif" alt="T-Mobile Tuesday Motion GFX">
         <span class="card-type type-motion">Motion</span>
         <div class="card-overlay">
-          <div class="overlay-content"><p>Social motion graphics for T-Mobile Tuesdays — animated brand assets for weekly promotions.</p></div>
+          <div class="overlay-content"><p>Social motion graphics for T-Mobile Tuesdays — animated brand assets for weekly promotions. Click to view all.</p></div>
         </div>
       </div>
       <div class="card-info">
         <p class="card-client">T-Mobile</p>
         <p class="card-title">Tuesday Motion GFX</p>
-        <p class="card-year">2023</p>
+        <p class="card-year">2021 – 2023</p>
       </div>
     </div>
 
@@ -973,6 +1039,50 @@
       });
     });
   });
+
+
+  // Modal
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
 </script>
+
+<!-- T-MOBILE MODAL -->
+<div class="modal-overlay" id="modal-tmobile" onclick="if(event.target===this)closeModal('tmobile')">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <div>
+        <p class="modal-client">T-Mobile &nbsp;·&nbsp; 2021–2023</p>
+        <h2 class="modal-title">T-Mobile Tuesday<br>Motion GFX</h2>
+        <p class="modal-desc">During my inaugural year at T-Mobile, I collaborated with the dynamic T-Mobile Tuesdays team. My main responsibility involved crafting an array of social media ads spotlighting the exciting perks awaiting customers each week. The spotlight for these promotions predominantly shone on Twitter, our primary hub for customer engagement. Teaming up with talented copywriters, we churned out vibrant and playful creative assets designed to captivate attention and drive more traffic to the T-Mobile Tuesday app.</p>
+      </div>
+      <button class="modal-close" onclick="closeModal('tmobile')">✕</button>
+    </div>
+    <div class="modal-grid">
+      <div class="modal-gif"><video src="tmobile-1.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif"><video src="tmobile-2.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif"><video src="tmobile-3.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif"><video src="tmobile-4.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif"><video src="tmobile-5.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif"><video src="tmobile-6.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif"><video src="tmobile-7.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif"><video src="tmobile-8.mp4" autoplay loop muted playsinline></video></div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
