@@ -761,14 +761,12 @@
       </div>
     </div>
 
-    <div class="project-card" data-cat="digital">
+    <div class="project-card" data-cat="digital" onclick="openModal('metro-bg')" style="cursor:crosshair">
       <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <p class="ph-label">Metro by T-Mobile Backgrounds<br>2023</p>
-        </div>
+        <img class="card-img" src="metro/metro-cover.png" alt="Metro by T-Mobile Backgrounds">
         <span class="card-type type-digital">Digital</span>
         <div class="card-overlay">
-          <div class="overlay-content"><p>Device background artwork and digital assets for Metro by T-Mobile.</p></div>
+          <div class="overlay-content"><p>Custom device background artwork for Metro by T-Mobile. Click to view all.</p></div>
         </div>
       </div>
       <div class="card-info">
@@ -1120,6 +1118,62 @@
       <div class="modal-gif"><img src="tmobile-web-20.png" alt="T-Mobile Web 20"></div>
       <div class="modal-gif"><img src="tmobile-web-21.png" alt="T-Mobile Web 21"></div>
       <div class="modal-gif"><img src="tmobile-web-22.png" alt="T-Mobile Web 22"></div>
+    </div>
+  </div>
+</div>
+
+<!-- METRO BACKGROUNDS MODAL -->
+<div class="modal-overlay" id="modal-metro-bg" onclick="if(event.target===this)closeModal('metro-bg')">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <div>
+        <p class="modal-client">Metro by T-Mobile &nbsp;·&nbsp; 2023</p>
+        <h2 class="modal-title">Metro Backgrounds</h2>
+        <p class="modal-desc">Custom device background artwork designed for Metro by T-Mobile customers — featuring purple and white colorways with branded mockups.</p>
+      </div>
+      <button class="modal-close" onclick="closeModal('metro-bg')">✕</button>
+    </div>
+
+    <p class="section-label" style="margin-bottom:1.5rem;">Purple Backgrounds</p>
+    <div class="modal-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 3rem;">
+      <div class="modal-gif"><img src="metro/metro-purple-bg-1.webp" alt="Purple BG 1"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-2.webp" alt="Purple BG 2"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-3.webp" alt="Purple BG 3"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-4.webp" alt="Purple BG 4"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-5.webp" alt="Purple BG 5"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-6.webp" alt="Purple BG 6"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-7.webp" alt="Purple BG 7"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-8.webp" alt="Purple BG 8"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-9.webp" alt="Purple BG 9"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-10.webp" alt="Purple BG 10"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-11.webp" alt="Purple BG 11"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-bg-12.webp" alt="Purple BG 12"></div>
+    </div>
+
+    <p class="section-label" style="margin-bottom:1.5rem;">Purple Mockups</p>
+    <div class="modal-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 3rem;">
+      <div class="modal-gif"><img src="metro/metro-purple-mock-1.webp" alt="Purple Mockup 1"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-mock-2.webp" alt="Purple Mockup 2"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-mock-3.webp" alt="Purple Mockup 3"></div>
+      <div class="modal-gif"><img src="metro/metro-purple-mock-4.webp" alt="Purple Mockup 4"></div>
+    </div>
+
+    <p class="section-label" style="margin-bottom:1.5rem;">White Backgrounds</p>
+    <div class="modal-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 3rem;">
+      <div class="modal-gif"><img src="metro/metro-white-bg-1.webp" alt="White BG 1"></div>
+      <div class="modal-gif"><img src="metro/metro-white-bg-2.webp" alt="White BG 2"></div>
+      <div class="modal-gif"><img src="metro/metro-white-bg-3.webp" alt="White BG 3"></div>
+      <div class="modal-gif"><img src="metro/metro-white-bg-4.webp" alt="White BG 4"></div>
+      <div class="modal-gif"><img src="metro/metro-white-bg-5.webp" alt="White BG 5"></div>
+    </div>
+
+    <p class="section-label" style="margin-bottom:1.5rem;">White Mockups</p>
+    <div class="modal-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="modal-gif"><img src="metro/metro-white-mock-1.webp" alt="White Mockup 1"></div>
+      <div class="modal-gif"><img src="metro/metro-white-mock-2.webp" alt="White Mockup 2"></div>
+      <div class="modal-gif"><img src="metro/metro-white-mock-3.webp" alt="White Mockup 3"></div>
+      <div class="modal-gif"><img src="metro/metro-white-mock-4.webp" alt="White Mockup 4"></div>
+      <div class="modal-gif"><img src="metro/metro-white-mock-5.webp" alt="White Mockup 5"></div>
     </div>
   </div>
 </div>
