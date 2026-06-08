@@ -599,14 +599,39 @@
   }
   /* Portrait social videos */
   .modal-gif.portrait {
-    aspect-ratio: 9/16;
-    max-height: 520px;
+    background: #000;
+  }
+  .modal-gif.portrait video {
+    width: 100%;
+    height: auto;
+    object-fit: unset;
   }
   .modal-gif img {
     width: 100%; height: auto;
     display: block;
     transition: transform 0.4s ease;
   }
+  /* Background images - masonry grid, no cropping */
+  .modal-grid-bg {
+    columns: 2;
+    column-gap: 8px;
+    margin-bottom: 3rem;
+  }
+  .modal-gif-bg {
+    break-inside: avoid;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: zoom-in;
+    display: block;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .modal-gif-bg img {
+    width: 100%; height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .modal-gif-bg:hover img { transform: scale(1.03); }
   .modal-gif video {
     width: 100%; height: 100%; object-fit: cover;
     display: block;
@@ -1110,12 +1135,13 @@
   });
 
   // Make all modal images clickable for lightbox
-  document.querySelectorAll('.modal-gif img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', e => {
+  // Use event delegation so it works even on dynamically shown modals
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.modal-gif img, .modal-gif-bg img');
+    if (img) {
       e.stopPropagation();
       openLightbox(img.src);
-    });
+    }
   });
 
   function openModal(id) {
@@ -1203,19 +1229,19 @@
     </div>
 
     <p class="section-label" style="margin-bottom:1.5rem;">Purple Backgrounds</p>
-    <div class="modal-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 3rem;">
-      <div class="modal-gif"><img src="metro-purple-bg-1.webp" alt="Purple BG 1"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-2.webp" alt="Purple BG 2"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-3.webp" alt="Purple BG 3"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-4.webp" alt="Purple BG 4"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-5.webp" alt="Purple BG 5"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-6.webp" alt="Purple BG 6"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-7.webp" alt="Purple BG 7"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-8.webp" alt="Purple BG 8"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-9.webp" alt="Purple BG 9"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-10.webp" alt="Purple BG 10"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-11.webp" alt="Purple BG 11"></div>
-      <div class="modal-gif"><img src="metro-purple-bg-12.webp" alt="Purple BG 12"></div>
+    <div class="modal-grid-bg">
+      <div class="modal-gif-bg"><img src="metro-purple-bg-1.webp" alt="Purple BG 1"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-2.webp" alt="Purple BG 2"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-3.webp" alt="Purple BG 3"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-4.webp" alt="Purple BG 4"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-5.webp" alt="Purple BG 5"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-6.webp" alt="Purple BG 6"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-7.webp" alt="Purple BG 7"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-8.webp" alt="Purple BG 8"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-9.webp" alt="Purple BG 9"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-10.webp" alt="Purple BG 10"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-11.webp" alt="Purple BG 11"></div>
+      <div class="modal-gif-bg"><img src="metro-purple-bg-12.webp" alt="Purple BG 12"></div>
     </div>
 
     <p class="section-label" style="margin-bottom:1.5rem;">Purple Mockups</p>
@@ -1227,12 +1253,12 @@
     </div>
 
     <p class="section-label" style="margin-bottom:1.5rem;">White Backgrounds</p>
-    <div class="modal-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 3rem;">
-      <div class="modal-gif"><img src="metro-white-bg-1.webp" alt="White BG 1"></div>
-      <div class="modal-gif"><img src="metro-white-bg-2.webp" alt="White BG 2"></div>
-      <div class="modal-gif"><img src="metro-white-bg-3.webp" alt="White BG 3"></div>
-      <div class="modal-gif"><img src="metro-white-bg-4.webp" alt="White BG 4"></div>
-      <div class="modal-gif"><img src="metro-white-bg-5.webp" alt="White BG 5"></div>
+    <div class="modal-grid-bg" style="margin-bottom: 3rem;">
+      <div class="modal-gif-bg"><img src="metro-white-bg-1.webp" alt="White BG 1"></div>
+      <div class="modal-gif-bg"><img src="metro-white-bg-2.webp" alt="White BG 2"></div>
+      <div class="modal-gif-bg"><img src="metro-white-bg-3.webp" alt="White BG 3"></div>
+      <div class="modal-gif-bg"><img src="metro-white-bg-4.webp" alt="White BG 4"></div>
+      <div class="modal-gif-bg"><img src="metro-white-bg-5.webp" alt="White BG 5"></div>
     </div>
 
     <p class="section-label" style="margin-bottom:1.5rem;">White Mockups</p>
