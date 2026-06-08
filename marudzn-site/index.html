@@ -595,14 +595,24 @@
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 4px;
-    aspect-ratio: 16/10;
     cursor: zoom-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Portrait social videos */
+  .modal-gif.portrait {
+    aspect-ratio: 9/16;
+    max-height: 480px;
   }
   .modal-gif img,
   .modal-gif video {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 100%; height: 100%; object-fit: contain;
     display: block;
     transition: transform 0.4s ease;
+  }
+  .modal-gif.portrait video {
+    object-fit: cover;
   }
   .modal-gif:hover img,
   .modal-gif:hover video { transform: scale(1.04); }
@@ -1103,6 +1113,7 @@
 
   // Make all modal images clickable for lightbox
   document.querySelectorAll('.modal-gif img').forEach(img => {
+    img.style.cursor = 'zoom-in';
     img.addEventListener('click', e => {
       e.stopPropagation();
       openLightbox(img.src);
@@ -1130,15 +1141,15 @@
       </div>
       <button class="modal-close" onclick="closeModal('tmobile')">✕</button>
     </div>
-    <div class="modal-grid">
-      <div class="modal-gif"><video src="tmobile-1.mp4" autoplay loop muted playsinline></video></div>
-      <div class="modal-gif"><video src="tmobile-2.mp4" autoplay loop muted playsinline></video></div>
-      <div class="modal-gif"><video src="tmobile-3.mp4" autoplay loop muted playsinline></video></div>
-      <div class="modal-gif"><video src="tmobile-4.mp4" autoplay loop muted playsinline></video></div>
-      <div class="modal-gif"><video src="tmobile-5.mp4" autoplay loop muted playsinline></video></div>
-      <div class="modal-gif"><video src="tmobile-6.mp4" autoplay loop muted playsinline></video></div>
-      <div class="modal-gif"><video src="tmobile-7.mp4" autoplay loop muted playsinline></video></div>
-      <div class="modal-gif"><video src="tmobile-8.mp4" autoplay loop muted playsinline></video></div>
+    <div class="modal-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="modal-gif portrait"><video src="tmobile-1.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif portrait"><video src="tmobile-2.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif portrait"><video src="tmobile-3.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif portrait"><video src="tmobile-4.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif portrait"><video src="tmobile-5.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif portrait"><video src="tmobile-6.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif portrait"><video src="tmobile-7.mp4" autoplay loop muted playsinline></video></div>
+      <div class="modal-gif portrait"><video src="tmobile-8.mp4" autoplay loop muted playsinline></video></div>
     </div>
   </div>
 </div>
@@ -1211,10 +1222,10 @@
 
     <p class="section-label" style="margin-bottom:1.5rem;">Purple Mockups</p>
     <div class="modal-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 3rem;">
-      <div class="modal-gif" style="aspect-ratio:16/10"><img src="metro-purple-mock-1.webp" alt="Purple Mockup 1"></div>
-      <div class="modal-gif" style="aspect-ratio:16/10"><img src="metro-purple-mock-2.webp" alt="Purple Mockup 2"></div>
-      <div class="modal-gif" style="aspect-ratio:16/10"><img src="metro-purple-mock-3.webp" alt="Purple Mockup 3"></div>
-      <div class="modal-gif" style="aspect-ratio:16/10"><img src="metro-purple-mock-4.webp" alt="Purple Mockup 4"></div>
+      <div class="modal-gif"><img src="metro-purple-mock-1.webp" alt="Purple Mockup 1"></div>
+      <div class="modal-gif"><img src="metro-purple-mock-2.webp" alt="Purple Mockup 2"></div>
+      <div class="modal-gif"><img src="metro-purple-mock-3.webp" alt="Purple Mockup 3"></div>
+      <div class="modal-gif"><img src="metro-purple-mock-4.webp" alt="Purple Mockup 4"></div>
     </div>
 
     <p class="section-label" style="margin-bottom:1.5rem;">White Backgrounds</p>
