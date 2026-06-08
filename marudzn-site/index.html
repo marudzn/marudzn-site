@@ -735,6 +735,21 @@
       </div>
     </div>
 
+    <div class="project-card" data-cat="digital" onclick="openModal('metro-bg')" style="cursor:crosshair">
+      <div class="card-thumb">
+        <img class="card-img" src="metro-purple-bg-1.webp" alt="Metro Backgrounds">
+        <span class="card-type type-digital">Digital</span>
+        <div class="card-overlay">
+          <div class="overlay-content"><p>Custom device background artwork for Metro by T-Mobile. Click to view all.</p></div>
+        </div>
+      </div>
+      <div class="card-info">
+        <p class="card-client">Metro by T-Mobile</p>
+        <p class="card-title">Metro Backgrounds</p>
+        <p class="card-year">2023</p>
+      </div>
+    </div>
+
     <div class="project-card" data-cat="digital">
       <div class="card-thumb">
         <div class="card-thumb-placeholder">
@@ -1093,7 +1108,8 @@
       openLightbox(img.src);
     });
   });
-</script>
+
+  function openModal(id) {
     document.getElementById('modal-' + id).classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -1101,14 +1117,6 @@
     document.getElementById('modal-' + id).classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open').forEach(m => {
-        m.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    }
-  });
 </script>
 
 <!-- T-MOBILE MODAL -->
